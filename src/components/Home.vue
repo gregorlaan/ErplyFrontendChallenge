@@ -12,12 +12,23 @@
         </b-form-radio-group>
       </b-form-group>
 
-      <paginate name="products" :list="FilteredProducts" :per="16">
-        <li v-bind:key="product.id" v-for="product in paginated('products')">
-          <p>{{ product.name }}</p>
-          <p>{{ product.store }}</p>
-          <p>{{ product.instock }}</p>
-        </li>
+      <paginate class="products-list" name="products" :list="FilteredProducts" :per="16">
+        <b-col cols="12" sm="6" md="4" xl="3" v-bind:key="product.id" v-for="product in paginated('products')">
+          <b-card
+          tag="article"
+          class="mb-2">
+            <div class="image-wrapper">
+              <b-img :src="product.image" fluid :alt="product.name" />
+            </div>
+            <h2>{{ product.name }}</h2>
+            <p class="card-text">
+              {{ product.description }}
+            </p>
+            <p>{{ product.store }}</p>
+            <p>{{ product.instock }}</p>
+            <b-button class="add-to-cart" href="#" variant="primary">Add To Cart</b-button>
+          </b-card>
+        </b-col>
       </paginate>
 
       <paginate-links for="products"></paginate-links>
@@ -96,4 +107,38 @@ export default {
 </script>
 
 <style>
+  ul.products-list {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+  ul.products-list .image-wrapper {
+    background: whitesmoke;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  ul.products-list .image-wrapper img {
+    width: 100%;
+  }
+  ul.products-list article {
+    height: calc(100% - 20px);
+  }
+  ul.products-list article a.add-to-cart {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    left: 0;
+    right: 0;
+    width: calc(100% - 40px);
+    margin: 20px;
+  }
+  ul.products-list article .card-body {
+    margin-bottom: 50px;
+  }
 </style>
