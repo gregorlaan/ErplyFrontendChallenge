@@ -7,6 +7,8 @@ import VueResource from 'vue-resource'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import BootstrapVue from 'bootstrap-vue'
+import VuePaginate from 'vue-paginate'
+Vue.use(VuePaginate)
 Vue.use(BootstrapVue)
 Vue.use(VueResource)
 
