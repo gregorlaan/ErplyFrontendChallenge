@@ -2,9 +2,15 @@
   <div>
     <b-container>
 
-      <paginate name="products" :list="productsList" :per="16">
+      <b-form-group label="Select store">
+        <b-form-radio-group id="storeState" v-model="storeState" :options="options" name="storeOptions" @click.native="updateFilterState">
+        </b-form-radio-group>
+      </b-form-group>
+
+      <paginate name="products" :list="FilteredStore" :per="16">
         <li v-bind:key="product.id" v-for="product in paginated('products')">
-          {{ product.name }}
+          <p>{{ product.name }}</p>
+          <p>{{ product.store }}</p>
         </li>
       </paginate>
 
@@ -18,7 +24,14 @@
 export default {
   data () {
     return {
-      productsList: {},
+      productsList: [],
+      FilteredStore: [],
+      storeState: 'All',
+      options: [
+        { text: 'All', value: 'All' },
+        { text: 'Estonia', value: 'Estonia' },
+        { text: 'Finland', value: 'Finland' }
+      ],
       paginate: ['products']
     }
   },
@@ -35,9 +48,24 @@ export default {
         var data = response.body
         this.productsList = data
         console.log(data)
+        this.filterStore(data)
       }, function (response) {
         // error callback
       })
+    },
+    filterStore: function (data) {
+      this.FilteredStore = []
+      for (var key in data) {
+        if (data[key].store === this.storeState) {
+          this.FilteredStore.push(data[key])
+        }
+        if (this.storeState === 'All') {
+          this.FilteredStore = data
+        }
+      }
+    },
+    updateFilterState: function () {
+      this.getData()
     }
   }
 }
