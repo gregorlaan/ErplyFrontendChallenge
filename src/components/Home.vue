@@ -47,6 +47,15 @@ export default {
       paginate: ['products']
     }
   },
+  // run FilterProducts function if there are made changes to storeState or availabilityState
+  watch: {
+    storeState: function () {
+      this.FilterProducts()
+    },
+    availabilityState: function () {
+      this.FilterProducts()
+    }
+  },
   mounted: function () {
     this.getData()
   },
