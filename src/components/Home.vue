@@ -1,5 +1,11 @@
 <template>
-  <div></div>
+  <div>
+    <b-container>
+      <li v-bind:key="product.id" v-for="product in products">
+        {{ product.name }}
+      </li>
+    </b-container>
+  </div>
 </template>
 
 <script>
