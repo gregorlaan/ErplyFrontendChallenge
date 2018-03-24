@@ -1,9 +1,15 @@
 <template>
   <div>
     <b-container>
-      <li v-bind:key="product.id" v-for="product in products">
-        {{ product.name }}
-      </li>
+
+      <paginate name="products" :list="productsList" :per="16">
+        <li v-bind:key="product.id" v-for="product in paginated('products')">
+          {{ product.name }}
+        </li>
+      </paginate>
+
+      <paginate-links for="products"></paginate-links>
+
     </b-container>
   </div>
 </template>
@@ -12,7 +18,8 @@
 export default {
   data () {
     return {
-      products: {}
+      productsList: {},
+      paginate: ['products']
     }
   },
   mounted: function () {
@@ -26,7 +33,7 @@ export default {
       }).then(function (response) {
         // success callback
         var data = response.body
-        this.products = data
+        this.productsList = data
         console.log(data)
       }, function (response) {
         // error callback
