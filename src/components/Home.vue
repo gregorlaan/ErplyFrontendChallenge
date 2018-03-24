@@ -3,12 +3,12 @@
     <b-container>
 
       <b-form-group label="Select store">
-        <b-form-radio-group id="storeState" v-model="storeState" :options="storeOptions" name="storeOptions" @click.native="FilterProducts">
+        <b-form-radio-group id="storeState" v-model="storeState" :options="storeOptions" name="storeOptions">
         </b-form-radio-group>
       </b-form-group>
 
       <b-form-group label="Availability">
-        <b-form-radio-group id="availability" v-model="availabilityState" :options="availabilityOptions" name="availabilityOptions" @click.native="FilterProducts">
+        <b-form-radio-group id="availability" v-model="availabilityState" :options="availabilityOptions" name="availabilityOptions">
         </b-form-radio-group>
       </b-form-group>
 
