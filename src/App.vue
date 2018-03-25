@@ -7,6 +7,7 @@
 
 <script>
 import MainHeader from '@/components/MainHeader'
+import 'mdi-vue/EarthIcon'
 
 export default {
   name: 'App',
