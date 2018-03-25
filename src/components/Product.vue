@@ -69,9 +69,6 @@ export default {
     font-size: 2em;
     color: var(--blue);
   }
-  .single-product h1.product-name {
-    margin-bottom: 20px;
-  }
   .single-product .add-to-cart {
     margin-bottom: 20px;
   }
