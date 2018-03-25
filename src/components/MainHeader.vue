@@ -1,6 +1,8 @@
 <template>
 
-  <b-navbar toggleable="md" type="dark" variant="primary">
+  <div>
+
+    <b-navbar toggleable="md" type="dark" variant="primary">
 
     <b-container>
 
@@ -19,14 +21,32 @@
 
     </b-container>
 
-  </b-navbar>
+    </b-navbar>
+
+    <b-container>
+      <b-breadcrumb :items="items"/>
+    </b-container>
+
+  </div>
 
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      items: [{
+        text: 'Home',
+        to: '/',
+        active: true
+      }]
+    }
+  }
 }
 </script>
 
 <style>
+  .breadcrumb {
+    margin-top: 25px;
+  }
 </style>
