@@ -24,7 +24,7 @@
             <p class="card-text">
               {{ product.description }}
             </p>
-            <p>{{ product.store }}</p>
+            <p title="country"><mdi-earth-icon /> {{ product.store }}</p>
             <p>{{ product.instock }}</p>
             <b-button class="add-to-cart" href="#" variant="primary">Add To Cart</b-button>
           </b-card>
