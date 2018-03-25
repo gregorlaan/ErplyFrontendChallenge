@@ -20,7 +20,7 @@
             <div class="image-wrapper">
               <b-img :src="product.image" fluid :alt="product.name" />
             </div>
-            <h2 class="product-name">{{ product.name }}</h2>
+            <b-link :to="'/product/' + product.id"><h2 class="product-name">{{ product.name }}</h2></b-link>
             <p class="country" title="country"><mdi-earth-icon /> {{ product.store }}</p>
             <p class="category"><mdi-tag-multiple-icon /> {{ product.department }}</p>
             <p class="availability" v-bind:class="{ 'in-stock': product.instock, 'out-of-stock': !product.instock }">
