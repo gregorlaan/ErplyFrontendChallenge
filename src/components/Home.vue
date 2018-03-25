@@ -34,7 +34,17 @@
         </b-col>
       </paginate>
 
-      <paginate-links for="products"></paginate-links>
+      <paginate-links for="products"
+      :simple="{
+        prev: 'Back',
+        next: 'Next'
+      }"
+      :classes="{
+        'ul': ['btn-group', 'btn-group-md'],
+        '.next': ['btn', 'btn-outline-primary'],
+        '.prev': ['btn', 'btn-outline-primary'] // multiple classes
+      }"
+      ></paginate-links>
 
     </b-container>
   </div>
@@ -157,4 +167,9 @@ export default {
     height: 84px;
     margin-top: 15px;
   }
+  ul.paginate-links {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
 </style>
