@@ -141,6 +141,10 @@ export default {
   }
   ul.products-list article {
     height: calc(100% - 20px);
+    transition: all 200ms ease;
+  }
+  ul.products-list article:hover {
+    border-color: rgb(0, 122, 255);
   }
   ul.products-list article a.add-to-cart {
     width: 100%;
