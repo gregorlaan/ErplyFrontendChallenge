@@ -9,6 +9,9 @@
         <b-col cols="12" md="8" lg="9">
           {{ currentProduct[0].name }}
           <p class="price">{{ currentProduct[0].price }}<span><mdi-currency-eur-icon /></span></p>
+          <p class="desc">
+            {{ currentProduct[0].description }}
+          </p>
         </b-col>
       </b-row>
     </b-container>
