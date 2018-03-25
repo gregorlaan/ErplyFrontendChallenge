@@ -24,7 +24,9 @@
     </b-navbar>
 
     <b-container>
-      <b-breadcrumb :items="items"/>
+      <b-breadcrumb>
+        <b-breadcrumb-item :text="itemName" />
+      </b-breadcrumb>
     </b-container>
 
   </div>
@@ -35,11 +37,17 @@
 export default {
   data () {
     return {
-      items: [{
-        text: 'Home',
-        to: '/',
-        active: true
-      }]
+      itemName: this.$route.name
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      this.updateBreadcrumb()
+    }
+  },
+  methods: {
+    updateBreadcrumb: function () {
+      this.itemName = this.$route.name
     }
   }
 }
