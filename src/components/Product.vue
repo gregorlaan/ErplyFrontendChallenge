@@ -13,6 +13,11 @@
             {{ currentProduct[0].name }}
           </h1>
           <p class="price">{{ currentProduct[0].price }}<span><mdi-currency-eur-icon /></span></p>
+          <p class="availability" v-bind:class="{ 'in-stock': currentProduct[0].instock, 'out-of-stock': !currentProduct[0].instock }">
+            <mdi-checkbox-marked-circle-outline-icon />
+            <span v-if="currentProduct[0].instock">In Stock</span>
+            <span v-else>Out of Stock</span>
+          </p>
           <b-button class="add-to-cart" href="#" variant="primary">Add To Cart <mdi-cart-outline-icon /></b-button>
           <p class="desc">
             {{ currentProduct[0].description }}
@@ -80,5 +85,11 @@ export default {
   }
   .single-product .add-to-cart svg {
     fill: white;
+  }
+  .single-product .availability.out-of-stock svg {
+    fill: var(--danger);
+  }
+  .single-product .availability.in-stock svg {
+    fill: var(--success);
   }
 </style>
