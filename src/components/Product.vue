@@ -1,11 +1,15 @@
 <template>
   <div>
 
-    <b-container>
+    <b-container v-if="show" class="single-product">
       <b-row>
-        <div v-if="show">
+        <b-col cols="12" md="4" lg="3">
+          <b-img :src="currentProduct[0].image" fluid :alt="currentProduct[0].name" />
+        </b-col>
+        <b-col cols="12" md="8" lg="9">
           {{ currentProduct[0].name }}
-        </div>
+          <p class="price">{{ currentProduct[0].price }}<span><mdi-currency-eur-icon /></span></p>
+        </b-col>
       </b-row>
     </b-container>
 
@@ -50,4 +54,11 @@ export default {
 </script>
 
 <style>
+  .single-product .price span svg {
+    fill: var(--blue);
+  }
+  .single-product .price {
+    font-size: 2em;
+    color: var(--blue);
+  }
 </style>
