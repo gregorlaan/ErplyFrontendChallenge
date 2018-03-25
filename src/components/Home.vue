@@ -133,16 +133,10 @@ export default {
     height: calc(100% - 20px);
   }
   ul.products-list article a.add-to-cart {
-    position: absolute;
-    bottom: 0;
-    display: block;
-    left: 0;
-    right: 0;
-    width: calc(100% - 40px);
-    margin: 20px;
+    width: 100%;
   }
   ul.products-list article .card-body {
-    margin-bottom: 100px;
+    margin-bottom: 10px;
   }
   ul.products-list article .price span svg {
     fill: var(--blue);
@@ -151,10 +145,6 @@ export default {
     font-size: 2em;
     text-align: center;
     color: var(--blue);
-    position: absolute;
-    bottom: 50px;
-    left: 0;
-    right: 0;
   }
   ul.products-list article .availability.out-of-stock svg {
     fill: var(--danger);
