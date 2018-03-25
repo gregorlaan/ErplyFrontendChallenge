@@ -21,9 +21,6 @@
               <b-img :src="product.image" fluid :alt="product.name" />
             </div>
             <h2 class="product-name">{{ product.name }}</h2>
-            <p class="card-text">
-              {{ product.description }}
-            </p>
             <p class="country" title="country"><mdi-earth-icon /> {{ product.store }}</p>
             <p class="availability" v-bind:class="{ 'in-stock': product.instock, 'out-of-stock': !product.instock }">
               <mdi-checkbox-marked-circle-outline-icon />
