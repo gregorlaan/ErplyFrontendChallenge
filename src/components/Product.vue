@@ -12,6 +12,7 @@
           <p class="desc">
             {{ currentProduct[0].description }}
           </p>
+          <p class="category"><mdi-tag-multiple-icon /> {{ currentProduct[0].department }}</p>
         </b-col>
       </b-row>
     </b-container>
