@@ -20,7 +20,7 @@
             <div class="image-wrapper">
               <b-img :src="product.image" fluid :alt="product.name" />
             </div>
-            <h2>{{ product.name }}</h2>
+            <h2 class="product-name">{{ product.name }}</h2>
             <p class="card-text">
               {{ product.description }}
             </p>
@@ -164,5 +164,10 @@ export default {
   }
   ul.products-list article .availability.in-stock svg {
     fill: var(--success);
+  }
+  ul.products-list article h2.product-name {
+    font-size: 24px;
+    height: 84px;
+    margin-top: 15px;
   }
 </style>
