@@ -7,7 +7,9 @@
           <b-img :src="currentProduct[0].image" fluid :alt="currentProduct[0].name" />
         </b-col>
         <b-col cols="12" md="8" lg="9">
-          {{ currentProduct[0].name }}
+          <h1 class="product-name">
+            {{ currentProduct[0].name }}
+          </h1>
           <p class="price">{{ currentProduct[0].price }}<span><mdi-currency-eur-icon /></span></p>
           <p class="desc">
             {{ currentProduct[0].description }}
@@ -65,5 +67,8 @@ export default {
   .single-product .price {
     font-size: 2em;
     color: var(--blue);
+  }
+  .single-product h1.product-name {
+    margin-bottom: 20px;
   }
 </style>
