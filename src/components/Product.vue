@@ -3,7 +3,9 @@
 
     <b-container>
       <b-row>
-        {{ currentProduct[0].name }}
+        <div v-if="show">
+          {{ currentProduct[0].name }}
+        </div>
       </b-row>
     </b-container>
 
@@ -16,7 +18,8 @@ export default {
     return {
       productsList: [],
       productId: this.$route.params.productId,
-      currentProduct: []
+      currentProduct: [],
+      show: false
     }
   },
   mounted: function () {
@@ -37,6 +40,7 @@ export default {
             this.currentProduct.push(this.productsList[key - 1])
           }
         }
+        this.show = true
       }, function (response) {
         // error callback
       })
