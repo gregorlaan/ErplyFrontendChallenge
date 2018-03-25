@@ -8,6 +8,7 @@
 <script>
 import MainHeader from '@/components/MainHeader'
 import 'mdi-vue/EarthIcon'
+import 'mdi-vue/CurrencyEurIcon'
 
 export default {
   name: 'App',
