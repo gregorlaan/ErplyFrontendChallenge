@@ -29,7 +29,7 @@
               <span v-else>Out of Stock</span>
             </p>
             <p class="price">{{ product.price }}<span><mdi-currency-eur-icon /></span></p>
-            <b-button class="add-to-cart" href="#" variant="primary">Add To Cart</b-button>
+            <b-button class="add-to-cart" href="#" variant="primary">Add To Cart <mdi-cart-outline-icon /></b-button>
           </b-card>
         </b-col>
       </paginate>
@@ -171,5 +171,8 @@ export default {
     display: flex;
     justify-content: center;
     padding: 0;
-}
+  }
+  ul.products-list article .add-to-cart svg {
+    fill: white;
+  }
 </style>
