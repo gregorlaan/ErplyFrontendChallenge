@@ -22,12 +22,12 @@
             </div>
             <h2 class="product-name">{{ product.name }}</h2>
             <p class="country" title="country"><mdi-earth-icon /> {{ product.store }}</p>
+            <p class="category"><mdi-tag-multiple-icon /> {{ product.department }}</p>
             <p class="availability" v-bind:class="{ 'in-stock': product.instock, 'out-of-stock': !product.instock }">
               <mdi-checkbox-marked-circle-outline-icon />
               <span v-if="product.instock">In Stock</span>
               <span v-else>Out of Stock</span>
             </p>
-            <p>{{ product.instock }}</p>
             <p class="price">{{ product.price }}<span><mdi-currency-eur-icon /></span></p>
             <b-button class="add-to-cart" href="#" variant="primary">Add To Cart</b-button>
           </b-card>
