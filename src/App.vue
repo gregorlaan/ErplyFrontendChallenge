@@ -26,7 +26,8 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
   }
-  p.country .mdi-icon {
+  p.country .mdi-icon,
+  p.availability .mdi-icon {
     vertical-align: text-bottom;
   }
 </style>
