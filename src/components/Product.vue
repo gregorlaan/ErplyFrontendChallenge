@@ -4,7 +4,9 @@
     <b-container v-if="show" class="single-product">
       <b-row>
         <b-col cols="12" md="4" lg="3">
-          <b-img :src="currentProduct[0].image" fluid :alt="currentProduct[0].name" />
+          <div class="image-wrapper">
+            <b-img :src="currentProduct[0].image" fluid :alt="currentProduct[0].name" />
+          </div>        
         </b-col>
         <b-col cols="12" md="8" lg="9">
           <h1 class="product-name">
@@ -62,6 +64,10 @@ export default {
 </script>
 
 <style>
+  .single-product .image-wrapper {
+    text-align: center;
+    margin: 5px 0 20px;
+  }
   .single-product .price span svg {
     fill: var(--blue);
   }
