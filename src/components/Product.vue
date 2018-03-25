@@ -11,6 +11,7 @@
             {{ currentProduct[0].name }}
           </h1>
           <p class="price">{{ currentProduct[0].price }}<span><mdi-currency-eur-icon /></span></p>
+          <b-button class="add-to-cart" href="#" variant="primary">Add To Cart <mdi-cart-outline-icon /></b-button>
           <p class="desc">
             {{ currentProduct[0].description }}
           </p>
@@ -70,5 +71,11 @@ export default {
   }
   .single-product h1.product-name {
     margin-bottom: 20px;
+  }
+  .single-product .add-to-cart {
+    margin-bottom: 20px;
+  }
+  .single-product .add-to-cart svg {
+    fill: white;
   }
 </style>
