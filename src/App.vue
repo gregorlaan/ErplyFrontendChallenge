@@ -28,7 +28,8 @@ export default {
     color: #2c3e50;
   }
   p.country .mdi-icon,
-  p.availability .mdi-icon {
+  p.availability .mdi-icon,
+  p.category .mdi-icon  {
     vertical-align: text-bottom;
   }
 </style>
