@@ -12,6 +12,9 @@
           <h1 class="product-name">
             {{ currentProduct[0].name }}
           </h1>
+          <p>
+            Product code: {{ currentProduct[0].productcode }}
+          </p>
           <p class="price">{{ currentProduct[0].price }}<span><mdi-currency-eur-icon /></span></p>
           <p class="availability" v-bind:class="{ 'in-stock': currentProduct[0].instock, 'out-of-stock': !currentProduct[0].instock }">
             <mdi-checkbox-marked-circle-outline-icon />
