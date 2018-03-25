@@ -11,6 +11,7 @@ import 'mdi-vue/EarthIcon'
 import 'mdi-vue/CurrencyEurIcon'
 import 'mdi-vue/CheckboxMarkedCircleOutlineIcon'
 import 'mdi-vue/TagMultipleIcon'
+import 'mdi-vue/CartOutlineIcon'
 
 export default {
   name: 'App',
