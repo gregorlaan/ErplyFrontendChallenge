@@ -24,8 +24,9 @@
             <p class="card-text">
               {{ product.description }}
             </p>
-            <p title="country"><mdi-earth-icon /> {{ product.store }}</p>
+            <p class="country" title="country"><mdi-earth-icon /> {{ product.store }}</p>
             <p>{{ product.instock }}</p>
+            <p class="price">{{ product.price }}<span><mdi-currency-eur-icon /></span></p>
             <b-button class="add-to-cart" href="#" variant="primary">Add To Cart</b-button>
           </b-card>
         </b-col>
@@ -139,6 +140,18 @@ export default {
     margin: 20px;
   }
   ul.products-list article .card-body {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+  }
+  ul.products-list article .price span svg {
+    fill: var(--blue);
+  }
+  ul.products-list article .price {
+    font-size: 2em;
+    text-align: center;
+    color: var(--blue);
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
   }
 </style>
