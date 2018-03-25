@@ -9,6 +9,7 @@
 import MainHeader from '@/components/MainHeader'
 import 'mdi-vue/EarthIcon'
 import 'mdi-vue/CurrencyEurIcon'
+import 'mdi-vue/CheckboxMarkedCircleOutlineIcon'
 
 export default {
   name: 'App',
