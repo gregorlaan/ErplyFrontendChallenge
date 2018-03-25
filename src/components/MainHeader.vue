@@ -6,7 +6,7 @@
 
     <b-container>
 
-      <b-navbar-brand href="#">E-shop SPA</b-navbar-brand>
+      <b-navbar-brand>E-shop SPA</b-navbar-brand>
 
       <b-navbar-toggle target="nav_collapse" class="ml-auto"></b-navbar-toggle>
 
