@@ -70,8 +70,11 @@ export default {
       })
     },
     addToCart: function () {
-      var localCart = Vue.localStorage.get('cart')
-      localCart = localCart + ',' + this.productId
+      var localCart = []
+      if (Vue.localStorage.get('cart')) {
+        localCart.push(Vue.localStorage.get('cart'))
+      }
+      localCart.push(this.productId)
       Vue.localStorage.set('cart', localCart)
     }
   }
