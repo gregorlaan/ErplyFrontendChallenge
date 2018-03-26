@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-container class="cart">
+    <b-container v-if="show" class="cart">
       <b-row>
         <b-col>
 
@@ -23,21 +23,35 @@ export default {
   data () {
     return {
       localCart: [],
-      groupedLocalCart: {}
+      groupedLocalCart: {},
+      show: false
     }
   },
   mounted: function () {
-    this.getFromCart()
+    this.getData()
   },
   methods: {
-    getFromCart: function () {
+    getData: function () {
+      this.$http({
+        url: 'https://erply-challenge.herokuapp.com/list?AUTH=fae7b9f6-6363-45a1-a9c9-3def2dae206d',
+        method: 'GET'
+      }).then(function (response) {
+        // success callback
+        var data = response.body
+        this.getFromCart(data)
+        this.show = true
+      }, function (response) {
+        // error callback
+      })
+    },
+    getFromCart: function (data) {
       // get strings from localStorage
       var strings = Vue.localStorage.get('cart')
       // strings from localStorage to array
       this.localCart = strings.split(',')
       var groupProducts = {}
       this.localCart.forEach(function (x) {
-        groupProducts[x] = (groupProducts[x] || 0) + 1
+        groupProducts[data[x - 1].name] = (groupProducts[data[x - 1].name] || 0) + 1
       })
       this.groupedLocalCart = groupProducts
     }
