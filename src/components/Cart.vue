@@ -5,8 +5,8 @@
         <b-col>
 
           <b-list-group>
-            <b-list-group-item v-bind:key="product" v-for="product in localCart">
-              {{ product }}
+            <b-list-group-item v-bind:key="key" v-for="(product, key) in groupedLocalCart">
+              {{ key }} - {{ product }}
             </b-list-group-item>
           </b-list-group>
 
@@ -22,7 +22,8 @@ import Vue from 'vue'
 export default {
   data () {
     return {
-      localCart: []
+      localCart: [],
+      groupedLocalCart: {}
     }
   },
   mounted: function () {
@@ -34,6 +35,11 @@ export default {
       var strings = Vue.localStorage.get('cart')
       // strings from localStorage to array
       this.localCart = strings.split(',')
+      var groupProducts = {}
+      this.localCart.forEach(function (x) {
+        groupProducts[x] = (groupProducts[x] || 0) + 1
+      })
+      this.groupedLocalCart = groupProducts
     }
   }
 }
