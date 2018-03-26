@@ -2,6 +2,8 @@
 
 > Simple e-shop SPA based on Bootstrap 4
 
+[Live Preview](https://gregorlaan.github.io/ErplyFrontendChallenge/)
+
 ## Build Setup
 
 ``` bash
