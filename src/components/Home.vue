@@ -114,7 +114,6 @@ export default {
         // success callback
         var data = response.body
         this.productsList = data
-        console.log(data)
         this.FilterProducts()
       }, function (response) {
         // error callback
