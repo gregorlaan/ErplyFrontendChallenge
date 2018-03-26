@@ -10,6 +10,10 @@
             </b-list-group-item>
           </b-list-group>
 
+          <b-button v-on:click="resetCart()" class="reset-cart" size="md" block variant="outline-primary">
+            Reset Cart
+          </b-button>
+
         </b-col>
       </b-row>
     </b-container>
@@ -46,19 +50,31 @@ export default {
     },
     getFromCart: function (data) {
       // get strings from localStorage
-      var strings = Vue.localStorage.get('cart')
-      // strings from localStorage to array
-      this.localCart = strings.split(',')
-      var groupProducts = {}
-      this.localCart.forEach(function (x) {
-        var productName = data[x - 1].name
-        groupProducts[productName] = (groupProducts[productName] || 0) + 1
-      })
-      this.groupedLocalCart = groupProducts
+      var strings = ''
+      if (Vue.localStorage.get('cart')) {
+        strings = Vue.localStorage.get('cart')
+        // strings from localStorage to array
+        this.localCart = strings.split(',')
+        var groupProducts = {}
+        this.localCart.forEach(function (x) {
+          var productName = data[x - 1].name
+          groupProducts[productName] = (groupProducts[productName] || 0) + 1
+        })
+        this.groupedLocalCart = groupProducts
+      } else {
+        this.groupedLocalCart = false
+      }
+    },
+    resetCart: function () {
+      Vue.localStorage.remove('cart')
+      this.getData()
     }
   }
 }
 </script>
 
 <style>
+  .reset-cart {
+    margin-top: 1rem;
+  }
 </style>
