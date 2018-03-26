@@ -11,15 +11,21 @@
         </b-alert>
       </b-col>
 
-      <b-form-group label="Select store">
-        <b-form-radio-group id="storeState" v-model="storeState" :options="storeOptions" name="storeOptions">
-        </b-form-radio-group>
-      </b-form-group>
+      <b-col cols="12">
+        <div class="filters">
 
-      <b-form-group label="Availability">
-        <b-form-radio-group id="availability" v-model="availabilityState" :options="availabilityOptions" name="availabilityOptions">
-        </b-form-radio-group>
-      </b-form-group>
+          <b-form-group label="Select store">
+            <b-form-radio-group id="storeState" v-model="storeState" :options="storeOptions" name="storeOptions">
+            </b-form-radio-group>
+          </b-form-group>
+
+          <b-form-group label="Availability">
+            <b-form-radio-group id="availability" v-model="availabilityState" :options="availabilityOptions" name="availabilityOptions">
+            </b-form-radio-group>
+          </b-form-group>
+
+        </div>
+      </b-col>
 
       <paginate class="products-list" name="products" :list="FilteredProducts" :per="16">
         <b-col cols="12" sm="6" md="4" xl="3" v-bind:key="product.id" v-for="product in paginated('products')">
@@ -195,6 +201,14 @@ export default {
     font-size: 24px;
     height: 84px;
     margin-top: 15px;
+  }
+  .filters {
+    padding: 2rem;
+    margin-bottom: 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--primary);
+    border-radius: 0.3rem;
   }
   ul.paginate-links {
     display: flex;
