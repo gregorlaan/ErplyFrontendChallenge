@@ -51,7 +51,8 @@ export default {
       this.localCart = strings.split(',')
       var groupProducts = {}
       this.localCart.forEach(function (x) {
-        groupProducts[data[x - 1].name] = (groupProducts[data[x - 1].name] || 0) + 1
+        var productName = data[x - 1].name
+        groupProducts[productName] = (groupProducts[productName] || 0) + 1
       })
       this.groupedLocalCart = groupProducts
     }
