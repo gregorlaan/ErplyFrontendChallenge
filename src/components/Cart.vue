@@ -10,7 +10,11 @@
             </b-list-group-item>
           </b-list-group>
 
-          <b-button v-on:click="resetCart()" class="reset-cart" size="md" block variant="outline-primary">
+          <b-alert class="cart-message" v-if="!groupedLocalCart" show>
+            The cart is empty!
+          </b-alert>
+
+          <b-button v-if="groupedLocalCart" v-on:click="resetCart()" class="reset-cart" size="md" block variant="outline-primary">
             Reset Cart
           </b-button>
 
