@@ -31,7 +31,7 @@ export default {
   p.country .mdi-icon,
   p.availability .mdi-icon,
   p.category .mdi-icon,
-  a.add-to-cart .mdi-icon {
+  .add-to-cart .mdi-icon {
     vertical-align: text-bottom;
   }
 </style>
