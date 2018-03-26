@@ -171,7 +171,7 @@ export default {
   ul.products-list article:hover {
     border-color: rgb(0, 122, 255);
   }
-  ul.products-list article a.add-to-cart {
+  ul.products-list article .add-to-cart {
     width: 100%;
   }
   ul.products-list article .card-body {
