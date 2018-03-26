@@ -6,7 +6,7 @@
         <b-col cols="12" md="4" lg="3">
           <div class="image-wrapper">
             <b-img :src="currentProduct[0].image" fluid :alt="currentProduct[0].name" />
-          </div>        
+          </div>
         </b-col>
         <b-col cols="12" md="8" lg="9">
           <h1 class="product-name">
@@ -21,7 +21,7 @@
             <span v-if="currentProduct[0].instock">In Stock</span>
             <span v-else>Out of Stock</span>
           </p>
-          <b-button class="add-to-cart" href="#" variant="primary">Add To Cart <mdi-cart-outline-icon /></b-button>
+          <b-button v-on:click="addToCart()" variant="primary" class="add-to-cart" hrevariant="primary">Add To Cart <mdi-cart-outline-icon /></b-button>
           <p class="desc">
             {{ currentProduct[0].description }}
           </p>
@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   data () {
     return {
@@ -66,6 +68,11 @@ export default {
       }, function (response) {
         // error callback
       })
+    },
+    addToCart: function () {
+      var localCart = Vue.localStorage.get('cart')
+      localCart = localCart + ',' + this.productId
+      Vue.localStorage.set('cart', localCart)
     }
   }
 }
