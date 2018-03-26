@@ -5,7 +5,7 @@
         <b-col>
 
           <b-list-group>
-            <b-list-group-item v-bind:key="key" v-for="(quantity, key) in groupedLocalCart">
+            <b-list-group-item class="d-flex justify-content-between align-items-center" v-bind:key="key" v-for="(quantity, key) in groupedLocalCart">
               {{ key }} <b-badge variant="primary" pill>{{ quantity }}</b-badge>
             </b-list-group-item>
           </b-list-group>
