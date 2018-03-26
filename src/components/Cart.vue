@@ -5,8 +5,8 @@
         <b-col>
 
           <b-list-group>
-            <b-list-group-item v-bind:key="key" v-for="(product, key) in groupedLocalCart">
-              {{ key }} - {{ product }}
+            <b-list-group-item v-bind:key="key" v-for="(quantity, key) in groupedLocalCart">
+              {{ key }} <b-badge variant="primary" pill>{{ quantity }}</b-badge>
             </b-list-group-item>
           </b-list-group>
 
