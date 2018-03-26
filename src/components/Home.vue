@@ -1,6 +1,15 @@
 <template>
   <div>
+
     <b-container>
+      <b-row>
+
+      <b-col cols="12">
+        <b-alert class="cart-message" v-if="cartMessage" show>
+          Product added to the cart!
+          <button type="button" aria-label="Close" class="close" v-on:click="cartMessage = false">×</button>
+        </b-alert>
+      </b-col>
 
       <b-form-group label="Select store">
         <b-form-radio-group id="storeState" v-model="storeState" :options="storeOptions" name="storeOptions">
@@ -34,19 +43,23 @@
         </b-col>
       </paginate>
 
-      <paginate-links for="products"
-      :simple="{
-        prev: 'Back',
-        next: 'Next'
-      }"
-      :classes="{
-        'ul': ['btn-group', 'btn-group-md'],
-        '.next': ['btn', 'btn-outline-primary'],
-        '.prev': ['btn', 'btn-outline-primary'] // multiple classes
-      }"
-      ></paginate-links>
+      <b-col cols="12">
+        <paginate-links for="products"
+        :simple="{
+          prev: 'Back',
+          next: 'Next'
+        }"
+        :classes="{
+          'ul': ['btn-group', 'btn-group-md'],
+          '.next': ['btn', 'btn-outline-primary'],
+          '.prev': ['btn', 'btn-outline-primary'] // multiple classes
+        }"
+        ></paginate-links>
+      </b-col>
 
+      </b-row>
     </b-container>
+
   </div>
 </template>
 
@@ -70,7 +83,8 @@ export default {
         { text: 'In Stock', value: true },
         { text: 'Out of Stock', value: false }
       ],
-      paginate: ['products']
+      paginate: ['products'],
+      cartMessage: false
     }
   },
   // run FilterProducts function if there are made changes to storeState or availabilityState
@@ -124,6 +138,7 @@ export default {
       }
       localCart.push(id)
       Vue.localStorage.set('cart', localCart)
+      this.cartMessage = true
     }
   }
 }
