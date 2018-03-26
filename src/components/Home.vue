@@ -29,7 +29,7 @@
               <span v-else>Out of Stock</span>
             </p>
             <p class="price">{{ product.price }}<span><mdi-currency-eur-icon /></span></p>
-            <b-button class="add-to-cart" href="#" variant="primary">Add To Cart <mdi-cart-outline-icon /></b-button>
+            <b-button v-on:click="addToCart(product.id)" class="add-to-cart" variant="primary">Add To Cart <mdi-cart-outline-icon /></b-button>
           </b-card>
         </b-col>
       </paginate>
@@ -51,6 +51,8 @@
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   data () {
     return {
@@ -114,6 +116,11 @@ export default {
           this.FilteredProducts.push(this.productsList[key])
         }
       }
+    },
+    addToCart: function (id) {
+      var localCart = Vue.localStorage.get('cart')
+      localCart = localCart + ',' + id
+      Vue.localStorage.set('cart', localCart)
     }
   }
 }
